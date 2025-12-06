@@ -9,13 +9,19 @@
   "scripts": {
     "format": "biome format --write",
     "lint": "biome check --write",
+    "prepare": "husky",
     "test": "vitest run"
   },
   "devDependencies": {
     "@biomejs/biome": "^2",
     "@types/bun": "^1",
     "@types/node": "^24",
+    "husky": "^9",
+    "lint-staged": "^16",
     "typescript": "^5",
     "vitest": "^4"
+  },
+  "lint-staged": {
+    "*": "biome format --write"
   }
 }
