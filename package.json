@@ -1,0 +1,21 @@
+{
+  "name": "@oviirup/utils",
+  "version": "1.0.0",
+  "description": "Collection of common JavaScript / TypeScript utilities bt @oviirup",
+  "repository": "oviirup/utils",
+  "license": "MIT",
+  "author": "Avirup Ghosh (oviirup)",
+  "type": "module",
+  "scripts": {
+    "format": "biome format --write",
+    "lint": "biome check --write",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2",
+    "@types/bun": "^1",
+    "@types/node": "^24",
+    "typescript": "^5",
+    "vitest": "^4"
+  }
+}
