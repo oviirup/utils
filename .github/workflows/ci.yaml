@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  typecheck:
+    name: 🧪 typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout
+      - uses: oven-sh/setup-bun
+      - run: bun run typecheck
+  lint:
+    name: 🧪 lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout
+      - uses: oven-sh/setup-bun
+      - run: bun run lint

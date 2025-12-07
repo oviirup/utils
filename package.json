@@ -37,7 +37,8 @@
     "format": "biome format --write",
     "lint": "biome check --write",
     "prepare": "husky",
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@biomejs/biome": "^2",
