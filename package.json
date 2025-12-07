@@ -5,8 +5,35 @@
   "repository": "oviirup/utils",
   "license": "MIT",
   "author": "Avirup Ghosh (oviirup)",
-  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./array": {
+      "types": "./dist/array.d.ts",
+      "import": "./dist/array.mjs",
+      "require": "./dist/array.js"
+    },
+    "./assertions": {
+      "types": "./dist/assertions.d.ts",
+      "import": "./dist/assertions.mjs",
+      "require": "./dist/assertions.js"
+    },
+    "./object": {
+      "types": "./dist/object.d.ts",
+      "import": "./dist/object.mjs",
+      "require": "./dist/object.js"
+    },
+    "./string": {
+      "types": "./dist/string.d.ts",
+      "import": "./dist/string.mjs",
+      "require": "./dist/string.js"
+    }
+  },
   "scripts": {
+    "build": "bunchee --minify --no-sourcemap",
     "format": "biome format --write",
     "lint": "biome check --write",
     "prepare": "husky",
@@ -16,6 +43,7 @@
     "@biomejs/biome": "^2",
     "@types/bun": "^1",
     "@types/node": "^24",
+    "bunchee": "^6",
     "husky": "^9",
     "lint-staged": "^16",
     "typescript": "^5",
