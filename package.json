@@ -21,6 +21,11 @@
       "import": "./dist/assertions.mjs",
       "require": "./dist/assertions.js"
     },
+    "./nanoid": {
+      "types": "./dist/nanoid.d.ts",
+      "import": "./dist/nanoid.mjs",
+      "require": "./dist/nanoid.js"
+    },
     "./object": {
       "types": "./dist/object.d.ts",
       "import": "./dist/object.mjs",
