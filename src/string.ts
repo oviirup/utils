@@ -1,4 +1,12 @@
 /**
+ * Check if the given value is a string
+ * @category String
+ */
+export function isString(val: unknown): val is string {
+  return typeof val === "string";
+}
+
+/**
  * Replace backslash to slash
  * @category String
  */

@@ -1,4 +1,4 @@
-import { describe, expect, it, test } from "vitest";
+import { describe, expect, it } from "vitest";
 import { slash, truncate } from "../src/string";
 
 describe("truncate", () => {
@@ -35,7 +35,7 @@ describe("slash", () => {
   it.each([
     { input: "\\123", expected: "/123" },
     { input: "\\\\", expected: "//" },
-    { input: "\\\h\\\i", expected: "/h/i" },
+    { input: "\\h\\i", expected: "/h/i" },
     { input: "C:\\Users\\John", expected: "C:/Users/John" },
   ])("should convert $input to $expected", ({ input, expected }) => {
     expect(slash(input)).toEqual(expected);
