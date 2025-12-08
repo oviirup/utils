@@ -35,7 +35,7 @@
   "scripts": {
     "build": "bunchee --minify --no-sourcemap",
     "format": "biome format --write",
-    "lint": "biome check --write",
+    "lint": "biome lint",
     "prepare": "husky",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
