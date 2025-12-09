@@ -26,6 +26,11 @@
       "import": "./dist/nanoid.mjs",
       "require": "./dist/nanoid.js"
     },
+    "./number": {
+      "types": "./dist/number.d.ts",
+      "import": "./dist/number.mjs",
+      "require": "./dist/number.js"
+    },
     "./object": {
       "types": "./dist/object.d.ts",
       "import": "./dist/object.mjs",

@@ -5,6 +5,21 @@ export function isString(val: unknown): val is string {
   return typeof val === "string";
 }
 
+/** Check if the given value is a number */
+export function isNumber(val: unknown): val is number {
+  return typeof val === "number" && !Number.isNaN(val);
+}
+
+/** Check if the given value is an integer */
+export function isInteger(val: unknown): val is number {
+  return isNumber(val) && Number.isInteger(val);
+}
+
+/** Check if the given value is a float */
+export function isFloat(val: unknown): val is number {
+  return isNumber(val) && !Number.isInteger(val);
+}
+
 /** Check if given value is an array */
 export function isArray<T = any>(value: unknown): value is T[] {
   return Array.isArray(value);
