@@ -1,9 +1,29 @@
-import { isArray, isEmptyArray } from "./array";
-import { isEmptyObject, isObject } from "./object";
+type Dict<T = unknown> = Record<string, T>;
 
-export { isString } from "./string";
+/** Check if given value is a string */
+export function isString(val: unknown): val is string {
+  return typeof val === "string";
+}
 
-export { isArray, isEmptyArray, isEmptyObject, isObject };
+/** Check if given value is an array */
+export function isArray<T = any>(value: unknown): value is T[] {
+  return Array.isArray(value);
+}
+
+/** Check if given array is empty */
+export function isEmptyArray(value: any[]): boolean {
+  return isArray(value) && value.length === 0;
+}
+
+/** Check if given value is an object */
+export function isObject<T extends object = Dict>(val: unknown): val is T {
+  return val !== null && typeof val === "object" && !Array.isArray(val);
+}
+
+/** Check if given object is empty */
+export function isEmptyObject<T extends object = Dict>(val: T): boolean {
+  return isObject(val) && Object.keys(val).length === 0;
+}
 
 /** Check if the given value is empty, null, undefined, or a string with no content */
 export function isEmpty(val: unknown): boolean {

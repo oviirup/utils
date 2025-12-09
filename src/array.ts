@@ -1,3 +1,5 @@
+import { isEmptyArray } from "./assertions";
+
 /**
  * Converts a given value to represent itself in an array
  * @param value The value to convert to an array
@@ -6,24 +8,6 @@
 export function toArray<T>(array: T | T[]): T[] {
   array = array ?? [];
   return Array.isArray(array) ? array : [array];
-}
-
-/**
- * Checks if a given value is an array
- * @param value The value to check if it is an array
- * @category Array
- */
-export function isArray<T = any>(value: unknown): value is T[] {
-  return Array.isArray(value);
-}
-
-/**
- * Checks if a given array is empty
- * @param value The array to check if it is empty
- * @category Array
- */
-export function isEmptyArray(value: any[]): boolean {
-  return isArray(value) && value.length === 0;
 }
 
 type Matcher<T> = (left: T, right: T) => boolean;
