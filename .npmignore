@@ -1,0 +1,14 @@
+.husky
+.vscode
+.editorconfig
+.git*
+.github
+src
+tests
+biome.json
+tsconfig.json
+*.tsbuildinfo
+*.tgz
+
+# make sure dist folder is included
+!dist

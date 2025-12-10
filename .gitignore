@@ -16,3 +16,4 @@ dist
 
 # miscellaneous
 *.tsbuildinfo
+*.tgz
