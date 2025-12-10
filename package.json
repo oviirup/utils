@@ -21,6 +21,11 @@
       "import": "./dist/assertions.mjs",
       "require": "./dist/assertions.js"
     },
+    "./clsx": {
+      "types": "./dist/clsx.d.ts",
+      "import": "./dist/clsx.mjs",
+      "require": "./dist/clsx.js"
+    },
     "./nanoid": {
       "types": "./dist/nanoid.d.ts",
       "import": "./dist/nanoid.mjs",
