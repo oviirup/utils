@@ -1,13 +1,12 @@
 import { toArray } from "./array";
 import { isObject } from "./assertions";
-
-type Dict<T = unknown> = Record<string, T>;
+import { Dictionary } from "./types";
 
 /**
  * Checks if a given object has a specified key
  * @category Object
  */
-export function keyInObject<T extends object = Dict>(
+export function keyInObject<T extends object = Dictionary>(
   val: T,
   key: keyof T | (string & {}),
 ): boolean {

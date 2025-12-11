@@ -45,6 +45,9 @@
       "types": "./dist/string.d.ts",
       "import": "./dist/string.mjs",
       "require": "./dist/string.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts"
     }
   },
   "scripts": {

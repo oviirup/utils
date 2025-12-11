@@ -1,10 +1,5 @@
 import { isArray, isNumber, isObject, isString } from "./assertions";
-
-type ClassValue = string | number | bigint | null | boolean | undefined;
-type ClassArray = ClassValue[];
-type ClassRecord = Record<string, any>;
-
-type ClassNameValue = ClassValue | ClassArray | ClassRecord;
+import { ClassNameValue } from "./types";
 
 function toClassValue(value: ClassNameValue): string {
   let names = "";
@@ -46,3 +41,5 @@ export function clsx(...inputs: ClassNameValue[]): string {
   }
   return result;
 }
+
+export type { ClassNameValue };

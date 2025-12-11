@@ -1,4 +1,5 @@
 import { isNumber, isObject } from "./assertions";
+import { AbbreviateOptions, AbbreviationSymbols } from "./types";
 
 /**
  * Clamps a number between a minimum and maximum value
@@ -9,12 +10,6 @@ export function clamp(val: number, min: number, max: number): number {
 }
 
 const baseAbbreviationSymbols = ["", "K", "M", "B", "T"];
-
-export type AbbreviationSymbols = Record<string, number> | string[];
-export type AbbreviateOptions = {
-  symbols?: AbbreviationSymbols;
-  precision?: number;
-};
 
 /**
  * Abbreviates a number to a string with a symbol and a precision
@@ -57,3 +52,5 @@ export function abbreviate(
   if (Math.floor(abs) === abs) return value.toString();
   return `${sign}${abs.toFixed(precision)}`;
 }
+
+export type { AbbreviateOptions, AbbreviationSymbols };
