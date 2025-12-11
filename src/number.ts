@@ -2,7 +2,22 @@ import { isNumber, isObject } from "./assertions";
 import { AbbreviateOptions, AbbreviationSymbols } from "./types";
 
 /**
+ * Checks if a number is within a range
+ * @param val The number to check
+ * @param min Minimum value
+ * @param max Maximum value
+ * @category Number
+ */
+export function inRange(val: number, min: number, max: number): boolean {
+  if (!isNumber(val) || !isNumber(min) || !isNumber(max)) return false;
+  return val >= min && val <= max;
+}
+
+/**
  * Clamps a number between a minimum and maximum value
+ * @param val The number to clamp
+ * @param min Minimum value
+ * @param max Maximum value
  * @category Number
  */
 export function clamp(val: number, min: number, max: number): number {
