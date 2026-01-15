@@ -1,6 +1,4 @@
-import { NegatePredicate, Predicate } from "./types";
-
-type Dict<T = unknown> = Record<string, T>;
+import { AnyFunction, Dictionary, NegatePredicate, Predicate } from "./types";
 
 /** Check if given value is a string */
 export function isString(val: unknown): val is string {
@@ -33,12 +31,12 @@ export function isEmptyArray<T = unknown>(val: T[]): boolean {
 }
 
 /** Check if given value is an object */
-export function isObject<T extends object = Dict>(val: unknown): val is T {
+export function isObject<T extends object = Dictionary>(val: any): val is T {
   return val !== null && typeof val === "object" && !Array.isArray(val);
 }
 
 /** Check if given object is empty */
-export function isEmptyObject<T extends object = Dict>(val: T): boolean {
+export function isEmptyObject<T extends object = Dictionary>(val: T): boolean {
   return Object.keys(val).length === 0;
 }
 
@@ -51,9 +49,8 @@ export function isEmpty(val: unknown): boolean {
   return false;
 }
 
-type Func<T> = (...args: any[]) => T;
 /** Check if the given object is a function */
-export function isFunction<T = unknown>(val: unknown): val is Func<T> {
+export function isFunction<T = unknown>(val: unknown): val is AnyFunction<T> {
   return typeof val === "function";
 }
 

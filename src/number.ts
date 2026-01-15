@@ -1,5 +1,5 @@
 import { isNumber, isObject } from "./assertions";
-import { AbbreviateOptions, AbbreviationSymbols } from "./types";
+import { AbbreviateOptions, AbbreviationSymbols, Dictionary } from "./types";
 
 /**
  * Checks if a number is within a range
@@ -48,7 +48,7 @@ export function abbreviate(
     symbols = arg.symbols ?? baseAbbreviationSymbols;
   }
   // get threshold symbols as tuples
-  const thresholds: [string, number][] = isObject(symbols)
+  const thresholds: [string, number][] = isObject<Dictionary<number>>(symbols)
     ? Object.entries(symbols)
     : symbols.map((symbol, i) => [symbol, 10 ** (i * 3)]);
   // sort thresholds from largest to smallest
