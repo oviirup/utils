@@ -1,0 +1,5 @@
+pre-commit:
+  jobs:
+    - run: biome format --write {staged_files}
+      glob: '**/*.{js,jsx,ts,tsx,json,jsonc,css,yaml,yml,md,mdx}'
+      stage_fixed: true

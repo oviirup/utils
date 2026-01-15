@@ -2,9 +2,15 @@
   "name": "@oviirup/utils",
   "version": "1.0.0",
   "description": "Collection of common JavaScript / TypeScript utilities bt @oviirup",
-  "repository": "oviirup/utils",
   "license": "MIT",
-  "author": "Avirup Ghosh (oviirup)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oviirup/utils"
+  },
+  "author": {
+    "name": "Avirup Ghosh (oviirup)",
+    "url": "https://github.com/oviirup"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -56,10 +62,10 @@
     }
   },
   "scripts": {
+    "prepare": "lefthook install",
     "build": "bunchee --minify --no-sourcemap",
     "format": "biome format --write",
     "lint": "biome check",
-    "prepare": "husky",
     "test": "bun test",
     "typecheck": "tsc --noEmit"
   },
@@ -67,15 +73,11 @@
     "@biomejs/biome": "^2",
     "@types/bun": "^1",
     "bunchee": "^6",
-    "husky": "^9",
-    "lint-staged": "^16",
+    "lefthook": "^2",
     "typescript": "^5"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
-  },
-  "lint-staged": {
-    "*.{js,mjs,ts,json,md}": "biome format --write"
   }
 }
