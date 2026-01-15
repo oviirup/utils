@@ -1,5 +1,10 @@
+post-checkout:
+  jobs:
+    - name: update submodules
+      run: git submodule update --init --recursive
 pre-commit:
   jobs:
-    - run: biome format --write {staged_files}
+    - name: format staged files
+      run: biome format --write {staged_files}
       glob: '**/*.{js,jsx,ts,tsx,json,jsonc,css,yaml,yml,md,mdx}'
-      stage_fixed: true
+      parallel: true
