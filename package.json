@@ -58,20 +58,18 @@
   "scripts": {
     "build": "bunchee --minify --no-sourcemap",
     "format": "biome format --write",
-    "lint": "biome lint",
+    "lint": "biome check",
     "prepare": "husky",
-    "test": "vitest run",
+    "test": "bun test",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@biomejs/biome": "^2",
     "@types/bun": "^1",
-    "@types/node": "^24",
     "bunchee": "^6",
     "husky": "^9",
     "lint-staged": "^16",
-    "typescript": "^5",
-    "vitest": "^4"
+    "typescript": "^5"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

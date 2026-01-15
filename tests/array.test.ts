@@ -1,4 +1,4 @@
-import { describe, expect, it, test } from "vitest";
+import { describe, expect, it, test } from "bun:test";
 import * as array from "../src/array";
 
 describe("toArray", () => {
