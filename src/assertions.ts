@@ -21,13 +21,13 @@ export function isFloat(val: unknown): val is number {
 }
 
 /** Check if given value is an array */
-export function isArray<T = any>(value: unknown): value is T[] {
-  return Array.isArray(value);
+export function isArray<T = any>(val: unknown): val is T[] {
+  return Array.isArray(val);
 }
 
 /** Check if given array is empty */
-export function isEmptyArray(value: any[]): boolean {
-  return isArray(value) && value.length === 0;
+export function isEmptyArray<T = unknown>(val: T[]): boolean {
+  return isArray(val) && val.length === 0;
 }
 
 /** Check if given value is an object */
@@ -37,7 +37,7 @@ export function isObject<T extends object = Dict>(val: unknown): val is T {
 
 /** Check if given object is empty */
 export function isEmptyObject<T extends object = Dict>(val: T): boolean {
-  return isObject(val) && Object.keys(val).length === 0;
+  return Object.keys(val).length === 0;
 }
 
 /** Check if the given value is empty, null, undefined, or a string with no content */
@@ -56,8 +56,8 @@ export function isFunction<T = unknown>(val: unknown): val is Func<T> {
 }
 
 /** Check if the given value is a regex */
-export function isRegex(value: unknown): value is RegExp {
-  return value instanceof RegExp;
+export function isRegex(val: unknown): val is RegExp {
+  return val instanceof RegExp;
 }
 
 /** Check if the given value is truthy */

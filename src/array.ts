@@ -72,7 +72,7 @@ export function first<T>(array: readonly T[]): T | undefined {
  */
 export function range(stop: number): number[];
 export function range(start: number, stop: number, step?: number): number[];
-export function range(...args: any): number[] {
+export function range(...args: [number] | [number, number, number?]): number[] {
   let start = 0;
   let stop: number;
   let step = 1;
@@ -99,7 +99,7 @@ type Predicate<T> = (item: T, index: number, array: T[]) => boolean;
  * @category Array
  */
 export function toFiltered<T>(array: T[], predicate: Predicate<T>): T[] {
-  for (let i = array.length; i--; i >= 0) {
+  for (let i = array.length - 1; i >= 0; i--) {
     if (!predicate(array[i], i, array)) array.splice(i, 1);
   }
   return array;

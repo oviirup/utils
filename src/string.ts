@@ -2,7 +2,7 @@
  * Replace backslash to slash
  * @category String
  */
-export function slash(str: string) {
+export function slash(str: string): string {
   return str.replace(/\\/g, "/");
 }
 

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -11,8 +11,6 @@
   },
   "formatter": {
     "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 2,
     "useEditorconfig": true
   },
   "linter": {
@@ -20,9 +18,15 @@
     "rules": {
       "recommended": true,
       "style": {
+        "noNonNullAssertion": "off",
         "useImportType": "off"
       },
       "suspicious": {
+        "noConsole": {
+          "fix": "safe",
+          "level": "warn",
+          "options": { "allow": ["info", "warn", "error"] }
+        },
         "noExplicitAny": "off",
         "noArrayIndexKey": "off"
       }

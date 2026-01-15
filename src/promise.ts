@@ -1,10 +1,9 @@
 import { isNumber } from "./assertions";
-import { inRange } from "./number";
 
 export function sleep(delay: number): Promise<void> {
   if (!isNumber(delay)) {
     throw new TypeError("sleep: delay must be a number");
-  } else if (!inRange(delay, 0, Infinity)) {
+  } else if (!Number.isFinite(delay) || delay < 0) {
     throw new RangeError("sleep: delay must be a positive finite number");
   }
   if (delay === 0) return Promise.resolve();

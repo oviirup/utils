@@ -9,7 +9,6 @@ import { AbbreviateOptions, AbbreviationSymbols } from "./types";
  * @category Number
  */
 export function inRange(val: number, min: number, max: number): boolean {
-  if (!isNumber(val) || !isNumber(min) || !isNumber(max)) return false;
   return val >= min && val <= max;
 }
 
