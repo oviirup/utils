@@ -1,3 +1,5 @@
+import { NegatePredicate, Predicate } from "./types";
+
 type Dict<T = unknown> = Record<string, T>;
 
 /** Check if given value is a string */
@@ -67,4 +69,9 @@ export function isTruthy(val: unknown): boolean {
 
 export function isBrowser(): boolean {
   return typeof window !== "undefined";
+}
+
+/** Negate an assertion function, returning a new function with the opposite boolean result */
+export function not<T extends Predicate>(fn: T): NegatePredicate<T> {
+  return ((val: unknown) => !fn(val)) as NegatePredicate<T>;
 }
