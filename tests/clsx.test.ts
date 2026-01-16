@@ -1,7 +1,3 @@
-/**
- * Ported from `classnames` for compatibility checks.
- */
-
 import { describe, expect, it } from "bun:test";
 import { clsx } from "../src/clsx";
 

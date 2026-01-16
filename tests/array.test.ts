@@ -10,6 +10,7 @@ describe("toArray", () => {
     { input: "foo", expected: ["foo"] },
     { input: ["foo"], expected: ["foo"] },
   ])("should convert $input to $expected", ({ input, expected }) => {
+    // @ts-expect-error - this is a test
     expect(array.toArray(input)).toEqual(expected);
   });
 });
