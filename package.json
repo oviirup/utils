@@ -1,16 +1,10 @@
 {
   "name": "@oviirup/utils",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Collection of common JavaScript / TypeScript utilities bt @oviirup",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/oviirup/utils"
-  },
-  "author": {
-    "name": "Avirup Ghosh (oviirup)",
-    "url": "https://github.com/oviirup"
-  },
+  "repository": "https://github.com/oviirup/utils",
+  "author": "Avirup Ghosh (github.com/oviirup)",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -75,9 +69,5 @@
     "bunchee": "^6",
     "lefthook": "^2",
     "typescript": "^5"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
   }
 }
