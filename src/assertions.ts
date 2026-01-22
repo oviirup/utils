@@ -50,7 +50,9 @@ export function isEmpty(val: unknown): boolean {
 }
 
 /** Check if the given object is a function */
-export function isFunction<T = unknown>(val: unknown): val is AnyFunction<T> {
+export function isFunction(val: unknown): val is Function;
+export function isFunction<T>(val: unknown): val is AnyFunction<T>;
+export function isFunction(val: unknown) {
   return typeof val === "function";
 }
 
