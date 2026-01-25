@@ -1,6 +1,6 @@
 export type Dictionary<T = any> = Record<string, T>;
 
-export type AnyFunction<T = any> = (...args: unknown[]) => T;
+export type AnyFunction<T = any> = (...args: any[]) => T;
 
 type ClassValue = string | number | bigint | null | boolean | undefined;
 type ClassArray = ClassValue[];
