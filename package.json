@@ -5,69 +5,34 @@
   "license": "MIT",
   "repository": "https://github.com/oviirup/utils",
   "author": "Avirup Ghosh (github.com/oviirup)",
+  "type": "module",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./array": {
-      "types": "./dist/array.d.ts",
-      "import": "./dist/array.mjs",
-      "require": "./dist/array.js"
-    },
-    "./assertions": {
-      "types": "./dist/assertions.d.ts",
-      "import": "./dist/assertions.mjs",
-      "require": "./dist/assertions.js"
-    },
-    "./clsx": {
-      "types": "./dist/clsx.d.ts",
-      "import": "./dist/clsx.mjs",
-      "require": "./dist/clsx.js"
-    },
-    "./nanoid": {
-      "types": "./dist/nanoid.d.ts",
-      "import": "./dist/nanoid.mjs",
-      "require": "./dist/nanoid.js"
-    },
-    "./number": {
-      "types": "./dist/number.d.ts",
-      "import": "./dist/number.mjs",
-      "require": "./dist/number.js"
-    },
-    "./object": {
-      "types": "./dist/object.d.ts",
-      "import": "./dist/object.mjs",
-      "require": "./dist/object.js"
-    },
-    "./promise": {
-      "types": "./dist/promise.d.ts",
-      "import": "./dist/promise.mjs",
-      "require": "./dist/promise.js"
-    },
-    "./string": {
-      "types": "./dist/string.d.ts",
-      "import": "./dist/string.mjs",
-      "require": "./dist/string.js"
-    },
-    "./types": {
-      "types": "./dist/types.d.ts"
-    }
+    ".": "./dist/index.js",
+    "./array": "./dist/array.js",
+    "./assertions": "./dist/assertions/index.js",
+    "./clsx": "./dist/clsx.js",
+    "./nanoid": "./dist/nanoid.js",
+    "./number": "./dist/number.js",
+    "./object": "./dist/object.js",
+    "./promise": "./dist/promise.js",
+    "./string": "./dist/string/index.js",
+    "./string/casing": "./dist/string/casing.js",
+    "./types": "./dist/types.js",
+    "./package.json": "./package.json"
   },
   "scripts": {
-    "prepare": "lefthook install",
-    "build": "bunchee --minify --no-sourcemap",
+    "build": "tsdown",
     "format": "biome format --write",
     "lint": "biome check",
+    "prepare": "lefthook install",
     "test": "bun test",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@biomejs/biome": "^2",
     "@types/bun": "^1",
-    "bunchee": "^6",
     "lefthook": "^2",
+    "tsdown": "^0",
     "typescript": "^5"
   },
   "publishConfig": {
