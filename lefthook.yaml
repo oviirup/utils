@@ -6,4 +6,4 @@ pre-commit:
   jobs:
     - name: format staged files
       run: biome format --write {staged_files}
-      glob: "**/*.{js,jsx,ts,tsx,json,jsonc,css,md,mdx}"
+      glob: "**/*.{js,jsx,ts,tsx,json,jsonc,css}"
