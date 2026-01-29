@@ -1,4 +1,4 @@
-import { AnyFunction, Dictionary, NegatePredicate, Predicate } from "./types";
+import { AnyFunction, Dictionary, NegatePredicate, Predicate } from "@/types";
 
 /** Check if given value is a string */
 export function isString(val: unknown): val is string {
@@ -64,6 +64,7 @@ export function isTruthy(val: unknown): boolean {
   return !!val;
 }
 
+/** Check if the code is running in a browser environment */
 export function isBrowser(): boolean {
   return typeof window !== "undefined";
 }
