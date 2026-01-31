@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { charset, nanoid } from "../src/nanoid";
+import { charset, nanoid } from "./index";
 
 describe("nanoid", () => {
   it("should be ready for 0 size", () => {

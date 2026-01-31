@@ -1,5 +1,5 @@
-import { isArray, isNumber, isObject, isString } from "./assertions";
-import { ClassNameValue } from "./types";
+import { isArray, isNumber, isObject, isString } from "@/assertions";
+import { ClassNameValue } from "@/types";
 
 function toClassValue(value: ClassNameValue): string {
   let names = "";

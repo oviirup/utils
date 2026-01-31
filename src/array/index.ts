@@ -1,4 +1,4 @@
-import { isEmptyArray } from "./assertions";
+import { isEmptyArray } from "@/assertions";
 
 /**
  * Converts a given value to represent itself in an array

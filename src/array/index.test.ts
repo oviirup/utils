@@ -1,5 +1,5 @@
 import { describe, expect, it, test } from "bun:test";
-import * as array from "../src/array";
+import * as array from "./index";
 
 describe("toArray", () => {
   it.each([

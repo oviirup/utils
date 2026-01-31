@@ -1,5 +1,5 @@
-import { isNumber, isObject } from "./assertions";
-import { AbbreviateOptions, AbbreviationSymbols, Dictionary } from "./types";
+import { isNumber, isObject } from "@/assertions";
+import { AbbreviateOptions, AbbreviationSymbols, Dictionary } from "@/types";
 
 /**
  * Checks if a number is within a range
