@@ -120,3 +120,18 @@ export function move<T>(array: T[], from: number, to: number): T[] {
   array.splice(to, 0, item);
   return array;
 }
+
+/**
+ * Chunk an array into smaller arrays of a given size
+ * @param array The array to chunk
+ * @param size The size of the chunks
+ * @category Array
+ */
+export function chunk<T>(array: T[], size: number): T[][] {
+  return array.reduce<T[][]>((acc, item, index) => {
+    const chunkIndex = Math.floor(index / size);
+    if (!acc[chunkIndex]) acc[chunkIndex] = [];
+    acc[chunkIndex].push(item);
+    return acc;
+  }, []);
+}
