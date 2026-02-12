@@ -14,7 +14,7 @@
     "./nanoid": "./dist/nanoid/index.js",
     "./number": "./dist/number/index.js",
     "./object": "./dist/object.js",
-    "./promise": "./dist/promise.js",
+    "./promise": "./dist/promise/index.js",
     "./string": "./dist/string/index.js",
     "./string/casing": "./dist/string/casing.js",
     "./types": "./dist/types.js",

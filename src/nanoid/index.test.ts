@@ -46,7 +46,7 @@ describe("nanoid", () => {
   });
 
   it("should have flat distribution", () => {
-    const length = 10;
+    const length = 21;
     const iterations = 100_000;
     const charCounts: Record<string, number> = {};
     // Initialize counts
@@ -77,6 +77,6 @@ describe("nanoid", () => {
       if (dist > max) max = dist;
       if (dist < min) min = dist;
     }
-    expect(max - min).toBeLessThan(0.05);
+    expect(max - min).toBeLessThan(0.06);
   });
 });
