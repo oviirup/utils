@@ -10,26 +10,22 @@ describe("promise", () => {
       expect(elapsed).toBeGreaterThanOrEqual(90); // Allow some tolerance
       expect(elapsed).toBeLessThan(200);
     });
-
     it("should resolve immediately for 0 delay", async () => {
       const start = Date.now();
       await sleep(0);
       const elapsed = Date.now() - start;
       expect(elapsed).toBeLessThan(10);
     });
-
     it("should throw TypeError for non-number input", () => {
       expect(() => sleep("100" as any)).toThrow(TypeError);
       expect(() => sleep(null as any)).toThrow(TypeError);
       expect(() => sleep(undefined as any)).toThrow(TypeError);
       expect(() => sleep({} as any)).toThrow(TypeError);
     });
-
     it("should throw RangeError for negative numbers", () => {
       expect(() => sleep(-1)).toThrow(RangeError);
       expect(() => sleep(-100)).toThrow(RangeError);
     });
-
     it("should throw RangeError for non-finite numbers", () => {
       expect(() => sleep(Infinity)).toThrow(RangeError);
       expect(() => sleep(-Infinity)).toThrow(RangeError);
@@ -47,14 +43,11 @@ describe("promise", () => {
       expect(result).toBe("success");
       expect(attempts).toBe(1);
     });
-
     it("should retry on failure and eventually succeed", async () => {
       let attempts = 0;
       const func = async () => {
         attempts++;
-        if (attempts < 3) {
-          throw new Error("fail");
-        }
+        if (attempts < 3) throw new Error("fail");
         return "success";
       };
       const result = await retry(func, 3);
@@ -68,7 +61,7 @@ describe("promise", () => {
         attempts++;
         throw new Error("always fail");
       };
-      await expect(retry(func, 2)).rejects.toThrow("always fail");
+      expect(retry(func, 2)).rejects.toThrow("always fail");
       expect(attempts).toBe(3); // Initial attempt + 2 retries
     });
 
@@ -76,9 +69,7 @@ describe("promise", () => {
       let attempts = 0;
       const func = async () => {
         attempts++;
-        if (attempts < 2) {
-          throw new Error("fail");
-        }
+        if (attempts < 2) throw new Error("fail");
         return "success";
       };
       const start = Date.now();
@@ -96,7 +87,7 @@ describe("promise", () => {
         attempts++;
         throw new Error("fail");
       };
-      await expect(retry(func, 0)).rejects.toThrow("fail");
+      expect(retry(func, 0)).rejects.toThrow("fail");
       expect(attempts).toBe(1); // Only initial attempt
     });
 
@@ -104,9 +95,7 @@ describe("promise", () => {
       let attempts = 0;
       const func = async () => {
         attempts++;
-        if (attempts < 2) {
-          throw new Error("fail");
-        }
+        if (attempts < 2) throw new Error("fail");
         return "success";
       };
       const start = Date.now();
@@ -124,7 +113,6 @@ describe("promise", () => {
       expect(value).toBe("success");
       expect(error).toBeUndefined();
     });
-
     it("should return [null, error] on failure with promise", async () => {
       const promise = Promise.reject(new Error("test error"));
       const [value, error] = await tryCatch(promise);
@@ -132,14 +120,12 @@ describe("promise", () => {
       expect(error).toBeInstanceOf(Error);
       expect((error as Error).message).toBe("test error");
     });
-
     it("should return [value, undefined] on success with function", async () => {
       const func = async () => "success";
       const [value, error] = await tryCatch(func);
       expect(value).toBe("success");
       expect(error).toBeUndefined();
     });
-
     it("should return [null, error] on failure with function", async () => {
       const func = async () => {
         throw new Error("test error");
@@ -149,14 +135,12 @@ describe("promise", () => {
       expect(error).toBeInstanceOf(Error);
       expect((error as Error).message).toBe("test error");
     });
-
     it("should handle synchronous functions", async () => {
       const func = () => "sync success";
       const [value, error] = await tryCatch(func);
       expect(value).toBe("sync success");
       expect(error).toBeUndefined();
     });
-
     it("should handle synchronous functions that throw", async () => {
       const func = () => {
         throw new Error("sync error");
@@ -166,7 +150,6 @@ describe("promise", () => {
       expect(error).toBeInstanceOf(Error);
       expect((error as Error).message).toBe("sync error");
     });
-
     it("should preserve error type", async () => {
       class CustomError extends Error {
         constructor(message: string) {
@@ -180,7 +163,6 @@ describe("promise", () => {
       expect(error).toBeInstanceOf(CustomError);
       expect((error as CustomError).name).toBe("CustomError");
     });
-
     it("should handle non-Error thrown values", async () => {
       const promise = Promise.reject("string error");
       const [value, error] = await tryCatch<string, string | Error>(promise);
