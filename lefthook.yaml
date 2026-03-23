@@ -5,5 +5,6 @@ post-checkout:
 pre-commit:
   jobs:
     - name: check staged files
-      run: biome check --write {staged_files}
+      run: bun lint --write {staged_files}
       glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json,jsonc}"
+      stage_fixed: true
