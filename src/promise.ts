@@ -1,5 +1,5 @@
 import { MaybePromise } from "@/types";
-import { isNumber } from "../assertions";
+import { isNumber } from "./assertions";
 
 /**
  * Delays execution for a specified number of milliseconds

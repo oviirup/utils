@@ -1,5 +1,5 @@
 import { describe, expect, it, test } from "bun:test";
-import * as ast from "./index";
+import * as ast from "@/assertions";
 
 describe("assertions", () => {
   describe("isNumber", () => {

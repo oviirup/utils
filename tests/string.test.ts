@@ -1,7 +1,42 @@
 import { describe, expect, it } from "bun:test";
-import * as casing from "./casing";
+import * as string from "@/string";
 
 describe("string", () => {
+  describe("truncate", () => {
+    it("should return the original string if its length is under specified length", () => {
+      const text = "Short text";
+      const length = 20;
+      expect(string.truncate(text, length)).toBe(text);
+    });
+    it('should truncate the string and add "..." at end', () => {
+      const text = "This is a very long text that needs truncation";
+      const length = 20;
+      expect(string.truncate(text, length)).toBe("This is a very lo...");
+    });
+    it("should handle strings with exact length equal to the specified length", () => {
+      const text = "Exact length text";
+      const length = text.length;
+      expect(string.truncate(text, length)).toBe(text);
+    });
+    it("should handle empty strings", () => {
+      expect(string.truncate("", 10)).toBe("");
+    });
+    it("should handle negative length by using the ellipsis length", () => {
+      const text = "Negative length example";
+      const length = -5;
+      expect(string.truncate(text, length)).toBe("...");
+    });
+  });
+  describe("slash", () => {
+    it.each([
+      { input: "\\123", expected: "/123" },
+      { input: "\\\\", expected: "//" },
+      { input: "\\h\\i", expected: "/h/i" },
+      { input: "C:\\Users\\John", expected: "C:/Users/John" },
+    ])("should convert $input to $expected", ({ input, expected }) => {
+      expect(string.slash(input)).toEqual(expected);
+    });
+  });
   describe("toCamelCase", () => {
     it.each([
       ["foo bar", "fooBar"],
@@ -15,7 +50,7 @@ describe("string", () => {
       ["foo_bar-baz", "fooBarBaz"],
       ["", ""],
     ])("%j to %j", (input, expected) => {
-      expect(casing.toCamelCase(input)).toBe(expected);
+      expect(string.toCamelCase(input)).toBe(expected);
     });
   });
   describe("toPascalCase", () => {
@@ -28,7 +63,7 @@ describe("string", () => {
       ["some-kebab-case", "SomeKebabCase"],
       ["", ""],
     ])("%j to %j", (input, expected) => {
-      expect(casing.toPascalCase(input)).toBe(expected);
+      expect(string.toPascalCase(input)).toBe(expected);
     });
   });
   describe("toSnakeCase", () => {
@@ -42,7 +77,7 @@ describe("string", () => {
       ["foo", "foo"],
       ["", ""],
     ])("%j to %j", (input, expected) => {
-      expect(casing.toSnakeCase(input)).toBe(expected);
+      expect(string.toSnakeCase(input)).toBe(expected);
     });
   });
   describe("toKebabCase", () => {
@@ -56,7 +91,7 @@ describe("string", () => {
       ["foo", "foo"],
       ["", ""],
     ])("%j to %j", (input, expected) => {
-      expect(casing.toKebabCase(input)).toBe(expected);
+      expect(string.toKebabCase(input)).toBe(expected);
     });
   });
   describe("toSentenceCase", () => {
@@ -68,7 +103,7 @@ describe("string", () => {
       ["foo", "Foo"],
       ["SOME UPPERCASE", "Some uppercase"],
     ])("%j to %j", (input, expected) => {
-      expect(casing.toSentenceCase(input)).toBe(expected);
+      expect(string.toSentenceCase(input)).toBe(expected);
     });
   });
   describe("toTitleCase", () => {
@@ -81,7 +116,7 @@ describe("string", () => {
       ["foo", "Foo"],
       ["", ""],
     ])("%j to %j", (input, expected) => {
-      expect(casing.toTitleCase(input)).toBe(expected);
+      expect(string.toTitleCase(input)).toBe(expected);
     });
   });
 });

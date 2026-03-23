@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { retry, sleep, tryCatch } from ".";
+import { retry, sleep, tryCatch } from "@/promise";
 
 describe("promise", () => {
   describe("sleep", () => {

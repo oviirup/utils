@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { clsx } from "./index";
+import { clsx } from "@/clsx";
 
 describe("clsx", () => {
   it("should keep object keys only with truthy values", () => {

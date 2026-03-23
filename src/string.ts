@@ -1,10 +1,33 @@
 import { isEmpty } from "@/assertions";
 
+/**
+ * Replace backslash to slash
+ * @category String
+ */
+export function slash(str: string): string {
+  return str.replace(/\\/g, "/");
+}
+
+/**
+ * Truncates a string to the specified length, adding "..." if it was longer.
+ * @param text The string to truncate
+ * @param length Maximum allowed length before truncation (default: 80)
+ * @category String
+ */
+export function truncate(input: string, length = 80): string {
+  if (!input) return input;
+  const text = input.trim();
+  const maxLength = Math.max(3, length);
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength - 3)}...`;
+}
+
 const reWords =
   /\p{Lu}?\p{Ll}+(?:[''](?:d|ll|m|re|s|t|ve))?(?=[\p{Z}\p{P}\p{S}_-]|\p{Lu}|$)|(?:\p{Lu}|[^\p{Z}\p{N}\p{Emoji_Presentation}\p{L}_-])+(?:[''](?:D|LL|M|RE|S|T|VE))?(?=[\p{Z}\p{P}\p{S}_-]|\p{Lu}(?:\p{Ll}|[^\p{Z}\p{N}\p{Emoji_Presentation}\p{L}_-])|$)|(?:\p{Lu}?[\p{Ll}\p{L}]+(?:[''](?:d|ll|m|re|s|t|ve))?|\p{Lu}+(?:[''](?:D|LL|M|RE|S|T|VE))?|\d*(?:1st|2nd|3rd|(?![123])\dth)(?=\b|\p{Lu})|\d+|\p{Emoji}+)/gu;
 
 /**
  * Splits a string into an array of words using Unicode-aware matching.
+ * @internal
  * @param str The input string to split into words.
  * @returns An array of words found in the input string.
  */
@@ -14,6 +37,7 @@ function words(str: string): string[] {
 
 /**
  * Joins the words in a string with the specified delimiter and converts the result to lowercase.
+ * @internal
  * @param str The input string to split into words and join.
  * @param d The delimiter to use when joining the words.
  * @returns The joined string in lowercase.

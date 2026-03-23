@@ -1,5 +1,5 @@
 import { describe, expect, it, test } from "bun:test";
-import * as array from "./index";
+import * as array from "@/array";
 
 describe("array", () => {
   // biome-ignore format: off
