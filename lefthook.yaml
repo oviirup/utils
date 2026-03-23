@@ -4,6 +4,7 @@ post-checkout:
       run: git submodule update --init --recursive
 pre-commit:
   jobs:
-    - name: format staged files
-      run: biome format --write {staged_files}
-      glob: "**/*.{js,jsx,ts,tsx,json,jsonc,css}"
+    - name: check staged files
+      run: biome check --write {staged_files}
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json,jsonc}"
+      stage_fixed: true

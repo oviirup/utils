@@ -14,6 +14,7 @@
     "./nanoid": "./dist/nanoid.js",
     "./number": "./dist/number.js",
     "./object": "./dist/object.js",
+    "./picocolors": "./dist/picocolors.js",
     "./promise": "./dist/promise.js",
     "./string": "./dist/string.js",
     "./types": "./dist/types.js",
