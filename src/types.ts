@@ -24,4 +24,4 @@ export type NegatePredicate<T> = T extends (val: unknown) => val is infer U
     ? (val: unknown) => boolean
     : never;
 
-export type MaybePromise<T> = T | Promise<T>;
+export type Awaitable<T> = T | Promise<T>;

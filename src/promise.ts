@@ -1,4 +1,4 @@
-import { MaybePromise } from "@/types";
+import { Awaitable } from "@/types";
 import { isNumber } from "./assertions";
 
 /**
@@ -48,7 +48,7 @@ export async function retry<T>(
  * @category promise
  */
 export async function tryCatch<T, E = Error>(
-  input: Promise<T> | (() => MaybePromise<T>),
+  input: Promise<T> | (() => Awaitable<T>),
 ) {
   try {
     const value = typeof input === "function" ? await input() : await input;
