@@ -1,5 +1,16 @@
 # @oviirup/utils
 
+## 1.0.9
+
+### Patch Changes
+
+- [`37dcc49`](https://github.com/oviirup/utils/commit/37dcc49a831834ee951f06a31de97974dbc17331) Thanks [@oviirup](https://github.com/oviirup)! - 🐛 bug fixes
+
+  - fixed `array.toFiltered` mutation issue
+  - fixed `array.move` out of bounds checking
+  - fixed `number.abbreviate` missing sign
+  - minor changes
+
 ## 1.0.8
 
 ### Patch Changes
