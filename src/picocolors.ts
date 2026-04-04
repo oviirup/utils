@@ -6,9 +6,12 @@
  * @repository https://github.com/alexeyraspopov/picocolors
  */
 
-const p: NodeJS.Process = process || ({} as NodeJS.Process);
+type Process = NodeJS.Process;
+type ProcessEnv = NodeJS.ProcessEnv;
+
+const p: Process = typeof process !== "undefined" ? process : ({} as Process);
 const argv: string[] = p.argv || [];
-const env: Dict<string> = p.env || {};
+const env: ProcessEnv = p.env || {};
 
 const isEnabled =
   !(!!env.NO_COLOR || argv.includes("--no-color")) &&

@@ -15,7 +15,6 @@ export function slash(str: string): string {
  * @category String
  */
 export function truncate(input: string, length = 80): string {
-  if (!input) return input;
   const text = input.trim();
   const maxLength = Math.max(3, length);
   if (text.length <= maxLength) return text;

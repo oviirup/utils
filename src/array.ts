@@ -93,16 +93,17 @@ export function range(...args: [number] | [number, number, number?]): number[] {
 type Predicate<T> = (item: T, index: number, array: T[]) => boolean;
 
 /**
- * Filter an array in place (faster than Array.filter)
+ * Filter an array, returning a new array with matching items
  * @param array The array to filter
  * @param predicate The predicate function to use to filter the array
  * @category Array
  */
 export function toFiltered<T>(array: T[], predicate: Predicate<T>): T[] {
-  for (let i = array.length - 1; i >= 0; i--) {
-    if (!predicate(array[i], i, array)) array.splice(i, 1);
+  const result = structuredClone(array);
+  for (let i = result.length - 1; i >= 0; i--) {
+    if (!predicate(result[i], i, result)) result.splice(i, 1);
   }
-  return array;
+  return result;
 }
 
 /**
@@ -115,6 +116,10 @@ export function toFiltered<T>(array: T[], predicate: Predicate<T>): T[] {
 export function move<T>(array: T[], from: number, to: number): T[] {
   if (isEmptyArray(array)) return array;
   if (from === to) return array;
+  // make sure to move within the bounds
+  const len = array.length;
+  if (from < 0 || from >= len) return array;
+  to = Math.max(0, Math.min(to, len - 1));
   const item = array[from];
   array.splice(from, 1);
   array.splice(to, 0, item);

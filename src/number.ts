@@ -63,7 +63,7 @@ export function abbreviate(
     return `${sign}${frac}${symbol}`;
   }
   // if the number is an integer, return it as is
-  if (Math.floor(abs) === abs) return value.toString();
+  if (Math.floor(abs) === abs) return `${sign}${abs.toString()}`;
   return `${sign}${abs.toFixed(precision)}`;
 }
 
