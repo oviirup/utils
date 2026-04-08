@@ -10,7 +10,6 @@
     ".": "./dist/index.js",
     "./array": "./dist/array.js",
     "./assertions": "./dist/assertions.js",
-    "./clsx": "./dist/clsx.js",
     "./nanoid": "./dist/nanoid.js",
     "./number": "./dist/number.js",
     "./object": "./dist/object.js",
@@ -33,12 +32,8 @@
     "@changesets/changelog-github": "^0.6.0",
     "@changesets/cli": "^2.30.0",
     "@types/bun": "^1.3.11",
-    "@types/node": "^24.12.2",
-    "lefthook": "^2.1.4",
+    "lefthook": "^2.1.5",
     "tsdown": "^0.21.7",
     "typescript": "^6.0.2"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
