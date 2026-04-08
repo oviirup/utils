@@ -19,26 +19,30 @@ export function sleep(delay: number): Promise<void> {
 
 /**
  * Retries a function until it succeeds or the maximum number of retries is reached
- * @param func The function to retry
+ * @param fn The function to retry
  * @param retries The number of retries
  * @param delay The delay between retries (optional)
  * @returns The result of the function
  * @category promise
  */
 export async function retry<T>(
-  func: () => Promise<T>,
+  fn: () => Promise<T>,
   retries: number,
   delay: number = 0,
 ): Promise<T> {
-  try {
-    return await func();
-  } catch (error) {
-    if (retries > 0) {
-      await sleep(delay);
-      return retry(func, retries - 1, delay);
+  let attempts = 0;
+  let pervError: unknown;
+  while (attempts <= retries) {
+    try {
+      return await fn();
+    } catch (error) {
+      pervError = error;
+      if (attempts >= retries) break;
+      if (delay > 0) await sleep(delay);
+      attempts++;
     }
-    throw error;
   }
+  throw pervError;
 }
 
 /**
