@@ -3,24 +3,24 @@ import { AbbreviateOptions, AbbreviationSymbols, Dictionary } from "@/types";
 
 /**
  * Checks if a number is within a range
- * @param val The number to check
+ * @param value The number to check
  * @param min Minimum value
  * @param max Maximum value
  * @category Number
  */
-export function inRange(val: number, min: number, max: number): boolean {
-  return val >= min && val <= max;
+export function inRange(value: number, min: number, max: number): boolean {
+  return value >= min && value <= max;
 }
 
 /**
  * Clamps a number between a minimum and maximum value
- * @param val The number to clamp
+ * @param value The number to clamp
  * @param min Minimum value
  * @param max Maximum value
  * @category Number
  */
-export function clamp(val: number, min: number, max: number): number {
-  return Math.min(Math.max(val, min), max);
+export function clamp(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max);
 }
 
 const baseAbbreviationSymbols = ["", "K", "M", "B", "T"];

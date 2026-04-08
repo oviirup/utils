@@ -14,8 +14,8 @@ export function slash(str: string): string {
  * @param length Maximum allowed length before truncation (default: 80)
  * @category String
  */
-export function truncate(input: string, length = 80): string {
-  const text = input.trim();
+export function truncate(str: string, length = 80): string {
+  const text = str.trim();
   const maxLength = Math.max(3, length);
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength - 3)}...`;
