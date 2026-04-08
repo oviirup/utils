@@ -1,5 +1,15 @@
 # @oviirup/utils
 
+## 1.0.10
+
+### Patch Changes
+
+- [`39dee36`](https://github.com/oviirup/utils/commit/39dee36edc14363453e15f2ecfa4f04dbe448c12) Thanks [@oviirup](https://github.com/oviirup)! - ✨ added `timeout` function
+
+  - 📄 updated readme
+  - ♻️ refactor `retry` function
+  - 🗑️ removed `clsx`
+
 ## 1.0.9
 
 ### Patch Changes
