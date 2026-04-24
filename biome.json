@@ -8,7 +8,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**/*.{js,jsx,ts,tsx,json,jsonc,css}", "!*.min.*"]
+    "includes": ["**/*", "!*.min.*"]
   },
   "formatter": {
     "enabled": true,
@@ -24,17 +24,13 @@
         "useImportType": "off"
       },
       "suspicious": {
-        "noConsole": {
-          "fix": "safe",
-          "level": "warn",
-          "options": { "allow": ["info", "warn", "error"] }
-        },
         "noExplicitAny": "off",
         "noArrayIndexKey": "off"
       }
     }
   },
   "assist": {
+    "enabled": true,
     "actions": { "source": { "organizeImports": "on" } }
   }
 }
