@@ -30,7 +30,7 @@ const reWords =
  * @param str The input string to split into words.
  * @returns An array of words found in the input string.
  */
-function words(str: string): string[] {
+export function words(str: string): string[] {
   return str.match(reWords) || [];
 }
 
@@ -41,7 +41,7 @@ function words(str: string): string[] {
  * @param d The delimiter to use when joining the words.
  * @returns The joined string in lowercase.
  */
-function join(str: string, d: string): string {
+export function join(str: string, d: string): string {
   return words(str).join(d).toLowerCase();
 }
 
