@@ -1,5 +1,11 @@
 # @oviirup/utils
 
+## 1.0.11
+
+### Patch Changes
+
+- [`eaddb96`](https://github.com/oviirup/utils/commit/eaddb96f6f851ceb3d08dc5f96383e3c118aa5b2) Thanks [@oviirup](https://github.com/oviirup)! - ♻️ export `words` and `join` from string
+
 ## 1.0.10
 
 ### Patch Changes
