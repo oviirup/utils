@@ -1,5 +1,10 @@
 import { AnyFunction, Dictionary, NegatePredicate, Predicate } from "@/types";
 
+/** Checks if the given value is not null or undefined */
+export function isDefined<T>(value: T): value is NonNullable<T> {
+  return value != null;
+}
+
 /** Check if given value is a string */
 export function isString(val: unknown): val is string {
   return typeof val === "string";
