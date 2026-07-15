@@ -1,5 +1,11 @@
 # @oviirup/utils
 
+## 1.0.12
+
+### Patch Changes
+
+- [`efe1b87`](https://github.com/oviirup/utils/commit/efe1b870c7d73641202f6739292513f1388560da) Thanks [@oviirup](https://github.com/oviirup)! - ✨ added "isDefined" assertion
+
 ## 1.0.11
 
 ### Patch Changes
