@@ -31,9 +31,7 @@ const baseAbbreviationSymbols = ["", "K", "M", "B", "T"];
  * @param arg - The precision or options to use for the abbreviation
  * @category Number
  */
-export function abbreviate(value: number, precision?: number): string;
-export function abbreviate(value: number, options?: AbbreviateOptions): string;
-export function abbreviate(value: number, arg?: number | AbbreviateOptions | undefined): string {
+export function abbreviate(value: number, arg?: number | AbbreviateOptions): string {
   if (!isNumber(value)) return "0";
   // parse arguments
   let precision = 1;

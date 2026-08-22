@@ -1,5 +1,5 @@
 import { Awaitable } from "@/types";
-import { isNumber, isObject } from "./assertions";
+import { isNumber } from "./assertions";
 
 /**
  * Delays execution for a specified number of milliseconds
@@ -60,27 +60,16 @@ export async function tryCatch<T, E = Error>(input: Promise<T> | (() => Awaitabl
   }
 }
 
-type TimeoutOptions = {
-  /** Timeout duration in milliseconds*/
-  ms: number;
-  /** Custom error message for timeout rejection */
-  error?: string;
-};
-
 /**
  * Rejects a promise if it doesn't resolve within the specified timeout
  * @param fn A promise or value to wait for
- * @param opts Timeout duration in milliseconds or an options object
+ * @param ms Timeout duration in milliseconds
  * @returns The result of the promise if it resolves within the timeout
  * @category promise
  */
-export function timeout<T>(fn: Awaitable<T>, ms: number): Promise<T>;
-export function timeout<T>(fn: Awaitable<T>, opts: TimeoutOptions): Promise<T>;
-export function timeout<T>(fn: Awaitable<T>, opts: number | TimeoutOptions): Promise<T> {
-  const duration = isNumber(opts) ? opts : opts.ms;
-  const message = isObject(opts) ? opts.error : "Operation timed out";
+export function timeout<T>(fn: Awaitable<T>, ms: number): Promise<T> {
   const rejection = new Promise<never>((_, reject) => {
-    setTimeout(() => reject(new Error(message)), duration);
+    setTimeout(() => reject(new Error("Operation timed out")), ms);
   });
   return Promise.race([fn, rejection]);
 }
