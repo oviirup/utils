@@ -51,9 +51,7 @@ export async function retry<T>(
  * @returns A tuple [value, error] where value is the result or null, and error is undefined or the error
  * @category promise
  */
-export async function tryCatch<T, E = Error>(
-  input: Promise<T> | (() => Awaitable<T>),
-) {
+export async function tryCatch<T, E = Error>(input: Promise<T> | (() => Awaitable<T>)) {
   try {
     const value = typeof input === "function" ? await input() : await input;
     return [value, undefined] as const;
@@ -78,10 +76,7 @@ type TimeoutOptions = {
  */
 export function timeout<T>(fn: Awaitable<T>, ms: number): Promise<T>;
 export function timeout<T>(fn: Awaitable<T>, opts: TimeoutOptions): Promise<T>;
-export function timeout<T>(
-  fn: Awaitable<T>,
-  opts: number | TimeoutOptions,
-): Promise<T> {
+export function timeout<T>(fn: Awaitable<T>, opts: number | TimeoutOptions): Promise<T> {
   const duration = isNumber(opts) ? opts : opts.ms;
   const message = isObject(opts) ? opts.error : "Operation timed out";
   const rejection = new Promise<never>((_, reject) => {

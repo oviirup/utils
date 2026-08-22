@@ -1,5 +1,4 @@
-export const charset =
-  "abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789";
+export const charset = "abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789";
 
 /**
  * Generate a cryptographically secure nanoid using the Web Crypto.

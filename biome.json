@@ -3,7 +3,6 @@
   "vcs": {
     "enabled": true,
     "clientKind": "git",
-    "defaultBranch": "main",
     "useIgnoreFile": true
   },
   "files": {
@@ -12,25 +11,21 @@
   },
   "formatter": {
     "enabled": true,
-    "useEditorconfig": true
+    "useEditorconfig": true,
+    "lineWidth": 100
   },
   "linter": {
-    "enabled": true,
     "includes": ["src", "!tests"],
-    "rules": {
-      "recommended": true,
-      "style": {
-        "noNonNullAssertion": "off",
-        "useImportType": "off"
-      },
-      "suspicious": {
-        "noExplicitAny": "off",
-        "noArrayIndexKey": "off"
-      }
-    }
+    "rules": {}
   },
   "assist": {
     "enabled": true,
-    "actions": { "source": { "organizeImports": "on" } }
+    "actions": {
+      "source": {
+        "organizeImports": "on",
+        "useSortedPackageJson": "on",
+        "useSortedTypeFields": "on"
+      }
+    }
   }
 }

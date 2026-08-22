@@ -8,7 +8,7 @@ export const isDefined = <T>(val: T): val is NonNullable<T> => val != null;
 export const isString = (val: unknown) => typeof val === "string";
 export const isFunction = (val: unknown) => typeof val === "function";
 export const isArray = (val: unknown) => _isArray(val);
-export const isObject = (val: unknown): val is object => val != null && _isObject(val);
+export const isObject = <T = Object>(val: unknown): val is T => val != null && _isObject(val);
 export const isTruthy = (val: unknown) => !!val;
 export const isNumber = (val: unknown): val is number => _isNum(val) && !_isNan(val);
 export const isInteger = (val: unknown): val is number => isNumber(val) && _isInt(val);
