@@ -119,4 +119,19 @@ describe("string", () => {
       expect(string.toTitleCase(input)).toBe(expected);
     });
   });
+  describe("slugify", () => {
+    it.each([
+      ["foo bar", "foo-bar"],
+      ["hello world", "hello-world"],
+      ["fooBar", "foo-bar"],
+      ["someCamelCase", "some-camel-case"],
+      ["foo_bar", "foo-bar"],
+      ["foo", "foo"],
+      ["", ""],
+      ["Google This", "google-this"],
+      ["Google This and That", "google-this-and-that"],
+    ])("%j to %j", (input, expected) => {
+      expect(string.slugify(input)).toBe(expected);
+    });
+  });
 });

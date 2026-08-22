@@ -119,3 +119,27 @@ export function toSentenceCase(str: string): string {
 export function toTitleCase(str: string): string {
   return words(str).map(toUcFirst).join(" ");
 }
+
+/**
+ * Convert a string to a dash-separated url-safe string slug
+ * @param input The string to convert
+ * @category String
+ * @returns The url-safe string slug
+ */
+export function slugify(input: string): string {
+  if (typeof input !== "string") {
+    throw new TypeError(`expected a string, got ${typeof input}`);
+  }
+  return input
+    .trim()
+    .normalize("NFKD")
+    .replace(/\p{M}/gu, "")
+    .replace(/([A-Z]{2,})(\d+)/g, "$1 $2")
+    .replace(/([a-z\d]+)([A-Z]{2,})/g, "$1 $2")
+    .replace(/([a-z\d])([A-Z])/g, "$1 $2")
+    .replace(/([a-zA-Z\d]+)['\u2019]([ts])(\s|$)/g, "$1$2$3")
+    .replace("\\", "")
+    .replace(/\s+/g, "-")
+    .replace(/[-_]+/g, "-")
+    .toLowerCase();
+}
