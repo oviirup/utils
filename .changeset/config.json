@@ -1,9 +1,9 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@3.1.3/schema.json",
+  "$schema": "https://unpkg.com/@changesets/config@4.0.0/schema.json",
   "changelog": ["@changesets/changelog-github", { "repo": "oviirup/utils" }],
   "commit": false,
   "access": "public",
   "baseBranch": "main",
-  "updateInternalDependencies": "patch",
-  "ignore": []
+  "format": "auto",
+  "updateInternalDependencies": "patch"
 }
