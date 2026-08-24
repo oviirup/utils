@@ -232,17 +232,7 @@ describe("assertions", () => {
         expect(result).toEqual([]);
       });
       it("works with mixed types", () => {
-        const mixed = [
-          1,
-          "hello",
-          true,
-          false,
-          null,
-          undefined,
-          {},
-          [],
-          () => {},
-        ];
+        const mixed = [1, "hello", true, false, null, undefined, {}, [], () => {}];
         const nonStrings = mixed.filter(ast.not(ast.isString));
         expect(nonStrings.length).toBe(8);
         expect(nonStrings.every((el) => typeof el !== "string")).toBe(true);
@@ -251,9 +241,7 @@ describe("assertions", () => {
 
     test("functional composition with filter", () => {
       const data = [1, 2, "hello", "world", 3, () => {}, true];
-      const numbers = data
-        .filter(ast.not(ast.isString))
-        .filter(ast.not(ast.isFunction));
+      const numbers = data.filter(ast.not(ast.isString)).filter(ast.not(ast.isFunction));
       expect(numbers).toEqual([1, 2, 3, true]);
     });
   });

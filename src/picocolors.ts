@@ -23,10 +23,7 @@ const isEnabled =
 
 /** Function wrapper to allow for both normal and tagged template usage */
 function wrapTemplateString<T>(cb: (input: string) => T) {
-  return function (
-    input: TemplateStringsArray | string,
-    ...args: unknown[]
-  ): T {
+  return function (input: TemplateStringsArray | string, ...args: unknown[]): T {
     if (Array.isArray(input) && "raw" in input) {
       let str = input[0];
       let i = 0;
@@ -49,12 +46,7 @@ function formatter(open: string, close: string, replace: string = open) {
   return wrapTemplateString(format);
 }
 
-function replaceClose(
-  string: string,
-  close: string,
-  replace: string,
-  index: number,
-) {
+function replaceClose(string: string, close: string, replace: string, index: number) {
   let result = "";
   let cursor = 0;
   do {
