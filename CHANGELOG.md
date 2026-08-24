@@ -1,5 +1,15 @@
 # @oviirup/utils
 
+## 1.0.13
+
+### Patch Changes
+
+- [#7](https://github.com/oviirup/utils/pull/7) [`73b0a5f`](https://github.com/oviirup/utils/commit/73b0a5f6ef68f292aae22dfa0e3b8c65f3b89d54) Thanks [@oviirup](https://github.com/oviirup)! - - ✨ added `slugify`
+    - 🔒 `nanoid` now uses the Web Crypto API instead of `node:crypto`
+    - ♻️ streamlined assertion helpers (const exports, shared internals)
+    - ♻️ `timeout` now takes a duration in milliseconds only
+    - ♻️ minor refactoring and updated formatting
+
 ## 1.0.12
 
 ### Patch Changes
