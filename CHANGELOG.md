@@ -1,5 +1,14 @@
 # @oviirup/utils
 
+## 1.0.14
+
+### Patch Changes
+
+- [#9](https://github.com/oviirup/utils/pull/9) [`2808f36`](https://github.com/oviirup/utils/commit/2808f368d4f63fd72c6980ed0196686424be9272) Thanks [@oviirup](https://github.com/oviirup)! - ✨ added `array.compact`
+  
+  - 🗑️ removed unnecessary functions
+  - ♻️ refactor array.chunk
+
 ## 1.0.13
 
 ### Patch Changes
