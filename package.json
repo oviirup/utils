@@ -20,7 +20,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "tsdown src/**/*.ts --dts --export --no-fixed-extension",
+    "build": "tsdown src/**/*.ts --dts --export --no-fixed-extension --unbundle",
     "format": "biome format --write",
     "lint": "biome check",
     "test": "bun test",
