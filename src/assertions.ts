@@ -1,8 +1,10 @@
-const _isNum = (val: unknown) => typeof val === "number";
-const _isObject = (val: unknown) => !_isArray(val) && typeof val === "object";
+import { Negate, Predicate } from "./types";
+
+const _isArray = Array.isArray;
 const _isNan = Number.isNaN;
 const _isInt = Number.isInteger;
-const _isArray = Array.isArray;
+const _isNum = (val: unknown) => typeof val === "number";
+const _isObject = (val: unknown) => !_isArray(val) && typeof val === "object";
 
 export const isDefined = <T>(val: T): val is NonNullable<T> => val != null;
 export const isString = (val: unknown) => typeof val === "string";
@@ -30,14 +32,6 @@ export const isEmpty = (val: unknown): boolean => {
   return false;
 };
 
-export type Predicate = ((val: unknown) => boolean) | ((val: unknown) => val is unknown);
-
-export type Negate<T> = T extends (val: unknown) => val is infer U
-  ? <V>(val: V) => val is Exclude<V, U>
-  : T extends (val: unknown) => boolean
-    ? (val: unknown) => boolean
-    : never;
-
-export function not<T extends Predicate>(fn: T): Negate<T> {
+export function not<T extends Predicate<unknown>>(fn: T): Negate<T> {
   return ((val: unknown) => !fn(val)) as Negate<T>;
 }
