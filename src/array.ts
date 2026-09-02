@@ -1,4 +1,5 @@
-import { isEmptyArray, isInteger } from "./assertions";
+import { isEmptyArray, isInteger, isTruthy } from "./assertions";
+import { Truthy } from "./types";
 
 /**
  * Converts a given value to represent itself in an array
@@ -91,6 +92,22 @@ export function chunk<T>(array: T[], size: number): T[][] {
     const start = i * size;
     const end = start + size;
     result[i] = array.slice(start, end);
+  }
+  return result;
+}
+
+/**
+ * Remove all falsy values from an array, returning a new array.
+ * @param array The array to compact
+ * @returns New compacted array
+ * @category Array
+ */
+export function compact<T>(array: readonly T[]): Array<Truthy<T>> {
+  const result: Array<Truthy<T>> = [];
+  const length = array.length;
+  for (let i = 0; i < length; i++) {
+    const item = array[i];
+    if (!!item) result.push(item as Truthy<T>);
   }
   return result;
 }

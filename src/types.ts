@@ -4,6 +4,9 @@ export type Func<T = any> = (...args: any[]) => T;
 
 export type Awaitable<T> = T | Promise<T>;
 
+export type Truthy<T> = T extends false | "" | 0 | null | undefined ? never : T;
+export type Falsy<T> = T extends false | "" | 0 | null | undefined ? T : never;
+
 export type AbbreviationSymbols = Dictionary<number> | string[];
 export type AbbreviateOptions = {
   symbols?: AbbreviationSymbols;
