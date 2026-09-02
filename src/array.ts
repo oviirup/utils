@@ -1,4 +1,4 @@
-import { isEmptyArray } from "@/assertions";
+import { isEmptyArray, isInteger } from "./assertions";
 
 /**
  * Converts a given value to represent itself in an array
@@ -82,10 +82,15 @@ export function move<T>(array: T[], from: number, to: number): T[] {
  * @category Array
  */
 export function chunk<T>(array: T[], size: number): T[][] {
-  return array.reduce<T[][]>((acc, item, index) => {
-    const chunkIndex = Math.floor(index / size);
-    if (!acc[chunkIndex]) acc[chunkIndex] = [];
-    acc[chunkIndex].push(item);
-    return acc;
-  }, []);
+  if (!isInteger(size) && size <= 0) {
+    throw new Error("Size must be a positive integer");
+  }
+  const length = Math.ceil(array.length / size);
+  const result: T[][] = [];
+  for (let i = 0; i < length; i++) {
+    const start = i * size;
+    const end = start + size;
+    result[i] = array.slice(start, end);
+  }
+  return result;
 }
