@@ -32,41 +32,6 @@ export function unique<T>(value: T[], equals?: Matcher<T>): T[] {
 }
 
 /**
- * Get nth item of Array. Negative for backward
- * @param array The array to get the item from
- * @param index The index of the item to get.
- * @category Array
- */
-export function at(array: readonly [], index: number): undefined;
-export function at<T>(array: readonly T[], index: number): T;
-export function at<T>(array: readonly T[] | [], index: number): T | undefined {
-  const len = array.length;
-  if (!len) return undefined;
-  if (index < 0) index += len;
-  return array[index];
-}
-
-/**
- * Get last item
- * @category Array
- */
-export function last(array: readonly []): undefined;
-export function last<T>(array: readonly T[]): T;
-export function last<T>(array: readonly T[]): T | undefined {
-  return at(array, -1);
-}
-
-/**
- * Get first item
- * @category Array
- */
-export function first(array: readonly []): undefined;
-export function first<T>(array: readonly T[]): T;
-export function first<T>(array: readonly T[]): T | undefined {
-  return at(array, 0);
-}
-
-/**
  * Generate a range array of numbers.
  * @category Array
  */
@@ -88,22 +53,6 @@ export function range(...args: [number] | [number, number, number?]): number[] {
     current += step;
   }
   return array;
-}
-
-type Predicate<T> = (item: T, index: number, array: T[]) => boolean;
-
-/**
- * Filter an array, returning a new array with matching items
- * @param array The array to filter
- * @param predicate The predicate function to use to filter the array
- * @category Array
- */
-export function toFiltered<T>(array: T[], predicate: Predicate<T>): T[] {
-  const result = structuredClone(array);
-  for (let i = result.length - 1; i >= 0; i--) {
-    if (!predicate(result[i], i, result)) result.splice(i, 1);
-  }
-  return result;
 }
 
 /**
