@@ -54,14 +54,14 @@ string.toKebabCase("Hello World");
 
 Runtime type checks and a predicate helper. Available from `@oviirup/utils` and `@oviirup/utils/assertions`.
 
-- **`isDefined`** — Non-null and non-undefined
-- **`isString`**, **`isNumber`**, **`isInteger`**, **`isFloat`** — Primitive number and string checks
-- **`isArray`**, **`isEmptyArray`** — Array checks
-- **`isObject`**, **`isEmptyObject`** — Plain object checks
-- **`isEmpty`** — `null`, `undefined`, empty string, empty array, or empty object
-- **`isFunction`**, **`isRegex`**, **`isTruthy`** — Function, `RegExp`, and truthiness
-- **`isBrowser`** — `typeof window !== "undefined"`
-- **`not(fn)`** — Negates an assertion function
+- **`isDefined`** - Non-null and non-undefined
+- **`isString`**, **`isNumber`**, **`isInteger`**, **`isFloat`** - Primitive number and string checks
+- **`isArray`**, **`isEmptyArray`** - Array checks
+- **`isObject`**, **`isEmptyObject`** - Plain object checks
+- **`isEmpty`** - `null`, `undefined`, empty string, empty array, or empty object
+- **`isFunction`**, **`isRegex`**, **`isTruthy`** - Function, `RegExp`, and truthiness
+- **`isBrowser`** - `typeof window !== "undefined"`
+- **`not(fn)`** - Negates an assertion function
 
 ```ts
 import { isDefined, isString, not } from "@oviirup/utils";
@@ -77,14 +77,12 @@ if (isDefined(user)) {
 
 `@oviirup/utils/array`
 
-- **`toArray(value)`** — Wraps a non-array value in an array
-- **`unique(array, equals?)`** — Unique items, with an optional equality matcher
-- **`at(array, index)`** — Item at index; negative indexes count from the end
-- **`first(array)`**, **`last(array)`** — First or last item
-- **`range(stop)`** / **`range(start, stop, step?)`** — Numeric range
-- **`toFiltered(array, predicate)`** — Filter into a cloned array
-- **`move(array, from, to)`** — Move an item in place
-- **`chunk(array, size)`** — Split into arrays of `size`
+- **`toArray(value)`** - Wraps a non-array value in an array
+- **`unique(array, equals?)`** - Unique items, with an optional equality matcher
+- **`compact(array)`** - Remove all falsy values from an array.
+- **`range(stop)`** / **`range(start, stop, step?)`** - Numeric range
+- **`move(array, from, to)`** - Move an item in place
+- **`chunk(array, size)`** - Split into arrays of `size`
 
 ```ts
 import { range, unique } from "@oviirup/utils/array";
@@ -97,17 +95,17 @@ range(1, 5); // [1, 2, 3, 4]
 
 `@oviirup/utils/number`
 
-- **`inRange(value, min, max)`** — Inclusive range check
-- **`clamp(value, min, max)`** — Clamp between `min` and `max`
-- **`abbreviate(value, precision? | options?)`** — Compact form (`1000` → `"1.0K"`)
+- **`inRange(value, min, max)`** - Inclusive range check
+- **`clamp(value, min, max)`** - Clamp between `min` and `max`
+- **`abbreviate(value, precision? | options?)`** - Compact form (`1000` → `"1.0K"`)
 
 ### Object
 
 `@oviirup/utils/object`
 
-- **`keyInObject(object, key)`** — Whether `key` exists on the object
-- **`pick(object, keys)`** — Keep the given keys
-- **`omit(object, keys)`** — Drop the given keys
+- **`keyInObject(object, key)`** - Whether `key` exists on the object
+- **`pick(object, keys)`** - Keep the given keys
+- **`omit(object, keys)`** - Drop the given keys
 
 `keys` may be a single key or an array of keys.
 
@@ -115,10 +113,10 @@ range(1, 5); // [1, 2, 3, 4]
 
 `@oviirup/utils/promise`
 
-- **`sleep(ms)`** — Resolve after `ms` milliseconds
-- **`retry(fn, retries, delay?)`** — Retry an async function
-- **`tryCatch(input)`** — `[value, error]` tuple; `error` is `undefined` on success
-- **`timeout(value, ms | { ms, error? })`** — Reject if the work does not finish in time
+- **`sleep(ms)`** - Resolve after `ms` milliseconds
+- **`retry(fn, retries, delay?)`** - Retry an async function
+- **`tryCatch(input)`** - `[value, error]` tuple; `error` is `undefined` on success
+- **`timeout(value, ms | { ms, error? })`** - Reject if the work does not finish in time
 
 ```ts
 import { tryCatch, timeout } from "@oviirup/utils/promise";
@@ -131,12 +129,12 @@ await timeout(doWork(), { ms: 5_000, error: "Timed out" });
 
 `@oviirup/utils/string`
 
-- **`slash(str)`** — Convert backslashes to forward slashes
-- **`truncate(str, length?)`** — Truncate and append `...` (default length `80`)
-- **`words(str)`** — Unicode-aware word split
-- **`join(str, delimiter)`** — Join words with a delimiter
-- **`toCamelCase`**, **`toPascalCase`**, **`toSnakeCase`**, **`toKebabCase`**, **`toSentenceCase`**, **`toTitleCase`** — Case conversion
-- **`slugify(str)`** — Transform any string to dash-separated, URL-safe slug
+- **`slash(str)`** - Convert backslashes to forward slashes
+- **`truncate(str, length?)`** - Truncate and append `...` (default length `80`)
+- **`words(str)`** - Unicode-aware word split
+- **`join(str, delimiter)`** - Join words with a delimiter
+- **`toCamelCase`**, **`toPascalCase`**, **`toSnakeCase`**, **`toKebabCase`**, **`toSentenceCase`**, **`toTitleCase`** - Case conversion
+- **`slugify(str)`** - Transform any string to dash-separated, URL-safe slug
 
 ### nanoid
 

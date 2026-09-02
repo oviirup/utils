@@ -4,16 +4,22 @@ export type Func<T = any> = (...args: any[]) => T;
 
 export type Awaitable<T> = T | Promise<T>;
 
+export type Truthy<T> = T extends false | "" | 0 | null | undefined ? never : T;
+export type Falsy<T> = T extends false | "" | 0 | null | undefined ? T : never;
+
 export type AbbreviationSymbols = Dictionary<number> | string[];
 export type AbbreviateOptions = {
   symbols?: AbbreviationSymbols;
   precision?: number;
 };
 
-export type Predicate = ((val: unknown) => boolean) | ((val: unknown) => val is unknown);
+export type BasePredicate = (val: unknown) => boolean;
+export type TypePredicate<T> = (val: unknown) => val is T;
+export type Predicate<T> = BasePredicate | TypePredicate<T>;
 
-export type NegatePredicate<T> = T extends (val: unknown) => val is infer U
-  ? <V>(val: V) => val is Exclude<V, U>
-  : T extends (val: unknown) => boolean
-    ? (val: unknown) => boolean
-    : never;
+export type Negate<T> =
+  T extends TypePredicate<infer U>
+    ? <V>(val: V) => val is Exclude<V, U>
+    : T extends BasePredicate
+      ? (val: unknown) => boolean
+      : never;

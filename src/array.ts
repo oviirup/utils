@@ -1,4 +1,5 @@
-import { isEmptyArray } from "@/assertions";
+import { isEmptyArray, isInteger, isTruthy } from "./assertions";
+import { Truthy } from "./types";
 
 /**
  * Converts a given value to represent itself in an array
@@ -32,41 +33,6 @@ export function unique<T>(value: T[], equals?: Matcher<T>): T[] {
 }
 
 /**
- * Get nth item of Array. Negative for backward
- * @param array The array to get the item from
- * @param index The index of the item to get.
- * @category Array
- */
-export function at(array: readonly [], index: number): undefined;
-export function at<T>(array: readonly T[], index: number): T;
-export function at<T>(array: readonly T[] | [], index: number): T | undefined {
-  const len = array.length;
-  if (!len) return undefined;
-  if (index < 0) index += len;
-  return array[index];
-}
-
-/**
- * Get last item
- * @category Array
- */
-export function last(array: readonly []): undefined;
-export function last<T>(array: readonly T[]): T;
-export function last<T>(array: readonly T[]): T | undefined {
-  return at(array, -1);
-}
-
-/**
- * Get first item
- * @category Array
- */
-export function first(array: readonly []): undefined;
-export function first<T>(array: readonly T[]): T;
-export function first<T>(array: readonly T[]): T | undefined {
-  return at(array, 0);
-}
-
-/**
  * Generate a range array of numbers.
  * @category Array
  */
@@ -88,22 +54,6 @@ export function range(...args: [number] | [number, number, number?]): number[] {
     current += step;
   }
   return array;
-}
-
-type Predicate<T> = (item: T, index: number, array: T[]) => boolean;
-
-/**
- * Filter an array, returning a new array with matching items
- * @param array The array to filter
- * @param predicate The predicate function to use to filter the array
- * @category Array
- */
-export function toFiltered<T>(array: T[], predicate: Predicate<T>): T[] {
-  const result = structuredClone(array);
-  for (let i = result.length - 1; i >= 0; i--) {
-    if (!predicate(result[i], i, result)) result.splice(i, 1);
-  }
-  return result;
 }
 
 /**
@@ -133,10 +83,31 @@ export function move<T>(array: T[], from: number, to: number): T[] {
  * @category Array
  */
 export function chunk<T>(array: T[], size: number): T[][] {
-  return array.reduce<T[][]>((acc, item, index) => {
-    const chunkIndex = Math.floor(index / size);
-    if (!acc[chunkIndex]) acc[chunkIndex] = [];
-    acc[chunkIndex].push(item);
-    return acc;
-  }, []);
+  if (!isInteger(size) && size <= 0) {
+    throw new Error("Size must be a positive integer");
+  }
+  const length = Math.ceil(array.length / size);
+  const result: T[][] = [];
+  for (let i = 0; i < length; i++) {
+    const start = i * size;
+    const end = start + size;
+    result[i] = array.slice(start, end);
+  }
+  return result;
+}
+
+/**
+ * Remove all falsy values from an array, returning a new array.
+ * @param array The array to compact
+ * @returns New compacted array
+ * @category Array
+ */
+export function compact<T>(array: readonly T[]): Array<Truthy<T>> {
+  const result: Array<Truthy<T>> = [];
+  const length = array.length;
+  for (let i = 0; i < length; i++) {
+    const item = array[i];
+    if (!!item) result.push(item as Truthy<T>);
+  }
+  return result;
 }

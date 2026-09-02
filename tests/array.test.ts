@@ -49,4 +49,15 @@ describe("array", () => {
       ]);
     });
   });
+
+  describe("compact", () => {
+    it("returns empty array for empty input", () => {
+      expect(array.compact([])).toEqual([]);
+    });
+    it("removes falsy values", () => {
+      expect(array.compact([0, 1, false, 2, "", 3, null, undefined, NaN])).toEqual([1, 2, 3]);
+      expect(array.compact([false, 0, -0, 0n, "", null, undefined, NaN])).toEqual([]);
+      expect(array.compact([0, { name: "John" }, false, NaN, ""])).toEqual([{ name: "John" }]);
+    });
+  });
 });
