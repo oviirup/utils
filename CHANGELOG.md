@@ -1,5 +1,11 @@
 # @oviirup/utils
 
+## 1.1.0
+
+### Minor Changes
+
+- [#11](https://github.com/oviirup/utils/pull/11) [`1438ce3`](https://github.com/oviirup/utils/commit/1438ce3d7102f87091a877decaf331c97f3ddef9) Thanks [@oviirup](https://github.com/oviirup)! - 🚚 rename `assertions` to `guards`
+
 ## 1.0.14
 
 ### Patch Changes
