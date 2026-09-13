@@ -1,5 +1,11 @@
 # @oviirup/utils
 
+## 1.1.1
+
+### Patch Changes
+
+- [#13](https://github.com/oviirup/utils/pull/13) [`e83bae0`](https://github.com/oviirup/utils/commit/e83bae0b12fa354bac8f4c4291b4900472933b3d) Thanks [@oviirup](https://github.com/oviirup)! - 🐛 fixed package exports
+
 ## 1.1.0
 
 ### Minor Changes
