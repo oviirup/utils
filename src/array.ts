@@ -1,4 +1,4 @@
-import { isEmptyArray, isInteger, isTruthy } from "./assertions";
+import { isEmptyArray, isInteger, isTruthy } from "./guards";
 import { Truthy } from "./types";
 
 /**

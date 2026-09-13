@@ -1,5 +1,5 @@
-import { Awaitable } from "@/types";
-import { isNumber } from "./assertions";
+import { isNumber } from "./guards";
+import { Awaitable } from "./types";
 
 /**
  * Delays execution for a specified number of milliseconds

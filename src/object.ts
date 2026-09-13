@@ -1,5 +1,5 @@
 import { toArray } from "./array";
-import { isObject } from "./assertions";
+import { isObject } from "./guards";
 import { Dictionary } from "./types";
 
 /**

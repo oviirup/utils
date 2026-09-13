@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import * as string from "@/string";
+import * as string from "../src/string";
 
 describe("string", () => {
   describe("truncate", () => {
