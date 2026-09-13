@@ -1,4 +1,4 @@
-import { isEmpty } from "./assertions";
+import { isEmpty } from "./guards";
 
 /**
  * Replace backslash to slash

@@ -1,4 +1,4 @@
-import { isNumber } from "./assertions";
+import { isNumber } from "./guards";
 import { Awaitable } from "./types";
 
 /**

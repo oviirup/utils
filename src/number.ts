@@ -1,4 +1,4 @@
-import { isNumber, isObject } from "./assertions";
+import { isNumber, isObject } from "./guards";
 import { AbbreviateOptions, AbbreviationSymbols, Dictionary } from "./types";
 
 /**

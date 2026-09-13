@@ -1,5 +1,5 @@
 export * as array from "./array";
-export * from "./assertions";
+export * from "./guards";
 export * from "./nanoid";
 export * as number from "./number";
 export * as object from "./object";

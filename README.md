@@ -50,9 +50,9 @@ string.toKebabCase("Hello World");
 
 ## API
 
-### Assertions
+### Guards
 
-Runtime type checks and a predicate helper. Available from `@oviirup/utils` and `@oviirup/utils/assertions`.
+Runtime type checks and a predicate helper. Available from `@oviirup/utils` and `@oviirup/utils/guards`.
 
 - **`isDefined`** - Non-null and non-undefined
 - **`isString`**, **`isNumber`**, **`isInteger`**, **`isFloat`** - Primitive number and string checks
