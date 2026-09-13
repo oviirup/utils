@@ -1,4 +1,4 @@
-import { isEmpty } from "@/assertions";
+import { isEmpty } from "./assertions";
 
 /**
  * Replace backslash to slash

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { AbbreviationSymbols, abbreviate } from "@/number";
+import { AbbreviationSymbols, abbreviate } from "../src/number";
 
 describe("abbreviate", () => {
   it.each([
